@@ -2,72 +2,90 @@
 <p>MSLE is an interdisciplinary program and students are encouraged to take electives from various departments within the university. This freedom allows you to tailor the program to your particular area of interest.</p>
 <p>Current Carnegie Mellon students, staff, and faculty may access the syllabus repository <a href="https://canvas.cmu.edu/courses/sis_course_id:syllabus-registry" target="_blank" rel="noopener">here</a> to learn more about specific course offerings.</p>
 <style>
-.msle-area-explorer { margin: 2rem auto 1.5rem; text-align: center; }
-.msle-area-explorer p { max-width: 780px; margin: .75rem auto 0; }
-.msle-pentagon svg { width: min(100%, 620px); height: auto; }
+.msle-area-explorer { margin: 2rem 0; padding: 1.5rem; background: #f7f9fc; border: 1px solid #d9e2ef; border-radius: 18px; }
+.msle-area-explorer h2 { margin-top: 0; }
+.msle-area-layout { display: grid; grid-template-columns: minmax(280px, 420px) 1fr; gap: 1.5rem; align-items: start; }
+.msle-pentagon svg { width: 100%; height: auto; }
 .msle-slice { cursor: pointer; transition: opacity .2s ease, transform .2s ease; }
-.msle-slice polygon, .msle-slice path, .msle-slice rect, .msle-slice circle { transition: opacity .2s ease, filter .2s ease, transform .2s ease; }
-.msle-slice.is-active polygon, .msle-slice.is-active path { filter: brightness(1.05); }
-.msle-slice.is-dimmed { opacity: .45; }
-.msle-slice text { font-family: Arial, sans-serif; font-weight: 700; fill: #ffffff; pointer-events: none; }
-.msle-pentagon-center { fill: #585858; stroke: #ffffff; stroke-width: 6; }
-.msle-pentagon-center-label { font-size: 25px; }
-.msle-pentagon-center-sub { font-size: 25px; }
-.msle-course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-.msle-category-panel { background: #fff; border: 1px solid #d9e2ef; border-top: 6px solid var(--area-color, #d9e2ef); border-radius: 14px; padding: 1rem; text-align: left; transition: opacity .2s ease, transform .2s ease; }
+.msle-slice path, .msle-slice polygon { transition: fill .2s ease, stroke-width .2s ease; }
+.msle-slice:hover path, .msle-slice:hover polygon, .msle-slice.is-active path, .msle-slice.is-active polygon { fill: #ffd766; stroke-width: 4; }
+.msle-slice text { font-family: Arial, sans-serif; font-size: 17px; font-weight: 700; fill: #1f2937; pointer-events: none; }
+.msle-area-controls { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+.msle-filter-button { border: 1px solid #9fb3c8; background: #fff; color: #16324f; border-radius: 999px; padding: .5rem .9rem; font-weight: 600; cursor: pointer; }
+.msle-filter-button.is-active, .msle-filter-button:hover { background: #16324f; color: #fff; border-color: #16324f; }
+.msle-area-descriptions { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .75rem; }
+.msle-area-note { background: #fff; border: 1px solid #d9e2ef; border-radius: 12px; padding: .85rem 1rem; }
+.msle-course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.msle-category-panel { background: #fff; border: 1px solid #d9e2ef; border-radius: 14px; padding: 1rem; }
 .msle-category-panel h4 { margin-top: 0; }
-.msle-category-panel.is-dimmed { opacity: .35; }
-.msle-category-panel.is-active { box-shadow: 0 8px 24px rgba(0, 0, 0, .08); }
 .course-item, .msle-course-list li, .msle-core-course { transition: background-color .2s ease, border-color .2s ease, opacity .2s ease; }
 .msle-course-list { margin: 0; padding-left: 1.1rem; }
 .msle-course-list li { margin-bottom: .4rem; border-radius: 8px; padding: .25rem .35rem; }
 [data-highlight-state="dimmed"] { opacity: .35; }
 [data-highlight-state="active"] { background: #fff2b3; box-shadow: inset 0 0 0 1px #f3c94b; opacity: 1; }
+.msle-course-badges { display: inline-flex; flex-wrap: wrap; gap: .25rem; margin-left: .5rem; vertical-align: middle; }
+.msle-course-badge { display: inline-block; font-size: .72rem; background: #edf3fb; color: #35516f; border-radius: 999px; padding: .15rem .45rem; }
 .msle-core-course { border-left: 4px solid transparent; padding: .25rem 0 .25rem 30px; margin: .75rem 0; }
 .msle-core-course[data-highlight-state="active"] { border-left-color: #f3c94b; }
 .legacy-curriculum-source { display: none; }
-@media (max-width: 640px) {
-  .msle-pentagon-center-label, .msle-pentagon-center-sub { font-size: 20px; }
-  .msle-slice text { font-size: 13px; }
-}
+@media (max-width: 820px) { .msle-area-layout { grid-template-columns: 1fr; } }
 </style>
 <section class="msle-area-explorer" aria-labelledby="msle-area-explorer-heading">
   <h2 id="msle-area-explorer-heading">Explore the Learning Engineering curriculum by area</h2>
-  <div class="msle-pentagon">
-    <svg viewBox="0 0 600 560" role="img" aria-label="Interactive five-part Learning Engineering pentagon.">
-      <g class="msle-slice" data-area="learning-science-theory" tabindex="0" role="button" aria-label="Learning science theory">
-        <path d="M300 35 L388 127 L337 235 L263 235 L212 127 Z" fill="#9b68b3" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"></path>
-        <text x="300" y="145" text-anchor="middle" style="font-size:21px;">Learning</text>
-        <text x="300" y="171" text-anchor="middle" style="font-size:21px;">science theory</text>
-      </g>
-      <g class="msle-slice" data-area="learning-experience-design" tabindex="0" role="button" aria-label="Learning experience design">
-        <path d="M392 132 L505 192 L474 339 L341 313 L341 240 Z" fill="#f45d3a" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"></path>
-        <text x="425" y="218" text-anchor="middle" style="font-size:20px;">Learning</text>
-        <text x="425" y="244" text-anchor="middle" style="font-size:20px;">experience</text>
-        <text x="425" y="270" text-anchor="middle" style="font-size:20px;">design</text>
-      </g>
-      <g class="msle-slice" data-area="interaction-design" tabindex="0" role="button" aria-label="Interaction design">
-        <path d="M469 345 L445 494 L301 524 L227 425 L340 318 Z" fill="#1499c7" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"></path>
-        <text x="360" y="418" text-anchor="middle" style="font-size:20px;">Interaction</text>
-        <text x="360" y="444" text-anchor="middle" style="font-size:20px;">design</text>
-      </g>
-      <g class="msle-slice" data-area="technical-product-development" tabindex="0" role="button" aria-label="Technical product development">
-        <path d="M131 345 L260 318 L258 425 L301 524 L155 494 Z" fill="#72b340" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"></path>
-        <text x="225" y="396" text-anchor="middle" style="font-size:19px;">Technical</text>
-        <text x="225" y="421" text-anchor="middle" style="font-size:19px;">product</text>
-        <text x="225" y="446" text-anchor="middle" style="font-size:19px;">development</text>
-      </g>
-      <g class="msle-slice" data-area="data-based-iteration" tabindex="0" role="button" aria-label="Data-based iteration">
-        <path d="M95 192 L208 132 L259 240 L259 313 L126 339 Z" fill="#f4ae43" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"></path>
-        <text x="174" y="230" text-anchor="middle" style="font-size:20px;">Data-based</text>
-        <text x="174" y="256" text-anchor="middle" style="font-size:20px;">iteration</text>
-      </g>
-      <circle class="msle-pentagon-center" cx="300" cy="280" r="92"></circle>
-      <text class="msle-pentagon-center-label" x="300" y="268" text-anchor="middle" fill="#ffffff">Learning</text>
-      <text class="msle-pentagon-center-sub" x="300" y="302" text-anchor="middle" fill="#ffffff">Engineering</text>
-    </svg>
+  <p>Use the interactive pentagon or the filter buttons to highlight courses connected to each area. A course can belong to more than one area, so students can quickly see how the curriculum overlaps across the program.</p>
+  <div class="msle-area-layout">
+    <div class="msle-pentagon">
+      <svg viewBox="0 0 420 420" role="img" aria-label="Interactive Learning Engineering pentagon with five clickable areas.">
+        <g class="msle-slice" data-area="learning-science-theory" tabindex="0" role="button" aria-label="Learning science theory">
+          <path d="M210 58 L268 138 L152 138 Z" fill="#eef2f7" stroke="#1f2937" stroke-width="3"></path>
+          <text x="210" y="114" text-anchor="middle">Learning</text>
+          <text x="210" y="134" text-anchor="middle">science theory</text>
+        </g>
+        <g class="msle-slice" data-area="learning-experience-design" tabindex="0" role="button" aria-label="Learning experience design">
+          <path d="M268 138 L362 169 L304 296 Z" fill="#eef2f7" stroke="#1f2937" stroke-width="3"></path>
+          <text x="309" y="188" text-anchor="middle">Learning</text>
+          <text x="309" y="208" text-anchor="middle">experience</text>
+          <text x="309" y="228" text-anchor="middle">design</text>
+        </g>
+        <g class="msle-slice" data-area="interaction-design" tabindex="0" role="button" aria-label="Interaction design">
+          <path d="M304 296 L246 376 L174 376 Z" fill="#eef2f7" stroke="#1f2937" stroke-width="3"></path>
+          <text x="240" y="328" text-anchor="middle">Interaction</text>
+          <text x="240" y="348" text-anchor="middle">design</text>
+        </g>
+        <g class="msle-slice" data-area="technical-product-development" tabindex="0" role="button" aria-label="Technical product development">
+          <path d="M174 376 L116 296 L58 169 Z" fill="#eef2f7" stroke="#1f2937" stroke-width="3"></path>
+          <text x="118" y="286" text-anchor="middle">Technical</text>
+          <text x="118" y="306" text-anchor="middle">product</text>
+          <text x="118" y="326" text-anchor="middle">development</text>
+        </g>
+        <g class="msle-slice" data-area="data-based-iteration" tabindex="0" role="button" aria-label="Data-based iteration">
+          <path d="M58 169 L152 138 L116 296 Z" fill="#eef2f7" stroke="#1f2937" stroke-width="3"></path>
+          <text x="110" y="198" text-anchor="middle">Data-based</text>
+          <text x="110" y="218" text-anchor="middle">iteration</text>
+        </g>
+        <polygon points="210,140 267,180 245,247 175,247 153,180" fill="#ffffff" stroke="#1f2937" stroke-width="3"></polygon>
+        <text x="210" y="196" text-anchor="middle" style="font-size:28px;">Learning</text>
+        <text x="210" y="226" text-anchor="middle" style="font-size:28px;">Engineering</text>
+      </svg>
+    </div>
+    <div>
+      <div class="msle-area-controls" aria-label="Curriculum area filters">
+        <button type="button" class="msle-filter-button" data-area="all">Show all courses</button>
+        <button type="button" class="msle-filter-button" data-area="learning-science-theory">Learning science theory</button>
+        <button type="button" class="msle-filter-button" data-area="learning-experience-design">Learning experience design</button>
+        <button type="button" class="msle-filter-button" data-area="interaction-design">Interaction design</button>
+        <button type="button" class="msle-filter-button" data-area="technical-product-development">Technical product development</button>
+        <button type="button" class="msle-filter-button" data-area="data-based-iteration">Data-based iteration</button>
+      </div>
+      <div class="msle-area-descriptions">
+        <div class="msle-area-note"><strong>Learning science theory</strong><br />Learning theories, cognition, motivation, and how people learn.</div>
+        <div class="msle-area-note"><strong>Learning experience design</strong><br />Designing instruction, environments, systems, and learning journeys.</div>
+        <div class="msle-area-note"><strong>Interaction design</strong><br />Human-centered interfaces, prototyping, usability, and learner interaction.</div>
+        <div class="msle-area-note"><strong>Technical product development</strong><br />Building, engineering, and shipping tools, systems, and platforms.</div>
+        <div class="msle-area-note"><strong>Data-based iteration</strong><br />Analytics, experimentation, evaluation, and evidence-based improvement.</div>
+      </div>
+    </div>
   </div>
-  <p>Click a colored segment to highlight the related courses below. Click the same segment again to show all courses.</p>
 </section>
 
 <h2>Degree Requirements</h2>
@@ -334,14 +352,6 @@ document.addEventListener('DOMContentLoaded', function () {
   areas.forEach((area) => {
     const panel = document.createElement('section');
     panel.className = 'msle-category-panel';
-    panel.dataset.area = area.slug;
-    panel.style.setProperty('--area-color', {
-      'learning-science-theory': '#9b68b3',
-      'learning-experience-design': '#f45d3a',
-      'interaction-design': '#1499c7',
-      'technical-product-development': '#72b340',
-      'data-based-iteration': '#f4ae43'
-    }[area.slug]);
     panel.innerHTML = '<h4>' + area.label + '</h4><ul class="msle-course-list" data-area-list="' + area.slug + '"></ul>';
     electiveContainer.appendChild(panel);
     categoryLists[area.slug] = panel.querySelector('ul');
@@ -354,22 +364,27 @@ document.addEventListener('DOMContentLoaded', function () {
       const clone = item.cloneNode(true);
       clone.classList.add('course-item');
       clone.dataset.areas = categories.join(' ');
+      const badgeWrap = document.createElement('span');
+      badgeWrap.className = 'msle-course-badges';
+      categories.forEach((slug) => {
+        const areaMeta = areas.find((entry) => entry.slug === slug);
+        const badge = document.createElement('span');
+        badge.className = 'msle-course-badge';
+        badge.textContent = areaMeta.label;
+        badgeWrap.appendChild(badge);
+      });
+      clone.appendChild(badgeWrap);
       categoryLists[category].appendChild(clone);
     });
   });
 
   const highlightable = Array.from(document.querySelectorAll('.course-item, .msle-course-list li, .msle-core-course'));
+  const buttons = Array.from(document.querySelectorAll('.msle-filter-button'));
   const slices = Array.from(document.querySelectorAll('.msle-slice'));
 
   function setActiveArea(area) {
-    slices.forEach((slice) => {
-      slice.classList.toggle('is-active', slice.dataset.area === area);
-      slice.classList.toggle('is-dimmed', area !== 'all' && slice.dataset.area !== area);
-    });
-    Array.from(document.querySelectorAll('.msle-category-panel')).forEach((panel) => {
-      panel.classList.toggle('is-active', panel.dataset.area === area);
-      panel.classList.toggle('is-dimmed', area !== 'all' && panel.dataset.area !== area);
-    });
+    buttons.forEach((button) => button.classList.toggle('is-active', button.dataset.area === area));
+    slices.forEach((slice) => slice.classList.toggle('is-active', slice.dataset.area === area));
     highlightable.forEach((item) => {
       const itemAreas = (item.dataset.areas || '').split(/\s+/).filter(Boolean);
       if (area === 'all') {
@@ -382,23 +397,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  slices.forEach((control) => {
+  [...buttons, ...slices].forEach((control) => {
+    control.addEventListener('click', () => setActiveArea(control.dataset.area || 'all'));
     control.addEventListener('keydown', (event) => {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
-        const nextArea = activeArea === control.dataset.area ? 'all' : control.dataset.area;
-        activeArea = nextArea;
-        setActiveArea(nextArea);
+        setActiveArea(control.dataset.area || 'all');
       }
     });
-    control.addEventListener('click', () => {
-      const nextArea = activeArea === control.dataset.area ? 'all' : control.dataset.area;
-      activeArea = nextArea;
-      setActiveArea(nextArea);
-    });
   });
-
-  let activeArea = 'all';
 
   setActiveArea('all');
 });

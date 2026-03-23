@@ -1,25 +1,96 @@
 <h1>Master of Science in Learning Engineering: Curriculum</h1>
 <p>MSLE is an interdisciplinary program and students are encouraged to take electives from various departments within the university. This freedom allows you to tailor the program to your particular area of interest.</p>
 <p>Current Carnegie Mellon students, staff, and faculty may access the syllabus repository <a href="https://canvas.cmu.edu/courses/sis_course_id:syllabus-registry" target="_blank" rel="noopener">here</a> to learn more about specific course offerings.</p>
+<style>
+.msle-area-explorer { margin: 2rem auto 1.5rem; text-align: center; }
+.msle-area-explorer p { max-width: 780px; margin: .75rem auto 0; }
+.msle-pentagon svg { width: min(100%, 620px); height: auto; }
+.msle-slice { cursor: pointer; transition: opacity .2s ease, transform .2s ease; }
+.msle-slice polygon, .msle-slice path, .msle-slice rect, .msle-slice circle { transition: opacity .2s ease, filter .2s ease, transform .2s ease; }
+.msle-slice.is-active polygon, .msle-slice.is-active path { filter: brightness(1.05); }
+.msle-slice.is-dimmed { opacity: .45; }
+.msle-slice text { font-family: Arial, sans-serif; font-weight: 700; fill: #ffffff; pointer-events: none; }
+.msle-pentagon-center { fill: #585858; stroke: #ffffff; stroke-width: 6; }
+.msle-pentagon-center-label { font-size: 25px; }
+.msle-pentagon-center-sub { font-size: 25px; }
+.msle-course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+.msle-category-panel { background: #fff; border: 1px solid #d9e2ef; border-top: 6px solid var(--area-color, #d9e2ef); border-radius: 14px; padding: 1rem; text-align: left; transition: opacity .2s ease, transform .2s ease; }
+.msle-category-panel h4 { margin-top: 0; }
+.msle-category-panel.is-dimmed { opacity: .35; }
+.msle-category-panel.is-active { box-shadow: 0 8px 24px rgba(0, 0, 0, .08); }
+.course-item, .msle-course-list li, .msle-core-course { transition: background-color .2s ease, border-color .2s ease, opacity .2s ease; }
+.msle-course-list { margin: 0; padding-left: 1.1rem; }
+.msle-course-list li { margin-bottom: .4rem; border-radius: 8px; padding: .25rem .35rem; }
+[data-highlight-state="dimmed"] { opacity: .35; }
+[data-highlight-state="active"] { background: #fff2b3; box-shadow: inset 0 0 0 1px #f3c94b; opacity: 1; }
+.msle-core-course { border-left: 4px solid transparent; padding: .25rem 0 .25rem 30px; margin: .75rem 0; }
+.msle-core-course[data-highlight-state="active"] { border-left-color: #f3c94b; }
+.legacy-curriculum-source { display: none; }
+@media (max-width: 640px) {
+  .msle-pentagon-center-label, .msle-pentagon-center-sub { font-size: 20px; }
+  .msle-slice text { font-size: 13px; }
+}
+</style>
+<section class="msle-area-explorer" aria-labelledby="msle-area-explorer-heading">
+  <h2 id="msle-area-explorer-heading">Explore the Learning Engineering curriculum by area</h2>
+  <div class="msle-pentagon">
+    <svg viewBox="0 0 600 560" role="img" aria-label="Interactive five-part Learning Engineering pentagon.">
+      <g class="msle-slice" data-area="learning-science-theory" tabindex="0" role="button" aria-label="Learning science theory">
+        <path d="M300 35 L388 127 L337 235 L263 235 L212 127 Z" fill="#9b68b3" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"></path>
+        <text x="300" y="145" text-anchor="middle" style="font-size:21px;">Learning</text>
+        <text x="300" y="171" text-anchor="middle" style="font-size:21px;">science theory</text>
+      </g>
+      <g class="msle-slice" data-area="learning-experience-design" tabindex="0" role="button" aria-label="Learning experience design">
+        <path d="M392 132 L505 192 L474 339 L341 313 L341 240 Z" fill="#f45d3a" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"></path>
+        <text x="425" y="218" text-anchor="middle" style="font-size:20px;">Learning</text>
+        <text x="425" y="244" text-anchor="middle" style="font-size:20px;">experience</text>
+        <text x="425" y="270" text-anchor="middle" style="font-size:20px;">design</text>
+      </g>
+      <g class="msle-slice" data-area="interaction-design" tabindex="0" role="button" aria-label="Interaction design">
+        <path d="M469 345 L445 494 L301 524 L227 425 L340 318 Z" fill="#1499c7" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"></path>
+        <text x="360" y="418" text-anchor="middle" style="font-size:20px;">Interaction</text>
+        <text x="360" y="444" text-anchor="middle" style="font-size:20px;">design</text>
+      </g>
+      <g class="msle-slice" data-area="technical-product-development" tabindex="0" role="button" aria-label="Technical product development">
+        <path d="M131 345 L260 318 L258 425 L301 524 L155 494 Z" fill="#72b340" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"></path>
+        <text x="225" y="396" text-anchor="middle" style="font-size:19px;">Technical</text>
+        <text x="225" y="421" text-anchor="middle" style="font-size:19px;">product</text>
+        <text x="225" y="446" text-anchor="middle" style="font-size:19px;">development</text>
+      </g>
+      <g class="msle-slice" data-area="data-based-iteration" tabindex="0" role="button" aria-label="Data-based iteration">
+        <path d="M95 192 L208 132 L259 240 L259 313 L126 339 Z" fill="#f4ae43" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"></path>
+        <text x="174" y="230" text-anchor="middle" style="font-size:20px;">Data-based</text>
+        <text x="174" y="256" text-anchor="middle" style="font-size:20px;">iteration</text>
+      </g>
+      <circle class="msle-pentagon-center" cx="300" cy="280" r="92"></circle>
+      <text class="msle-pentagon-center-label" x="300" y="268" text-anchor="middle" fill="#ffffff">Learning</text>
+      <text class="msle-pentagon-center-sub" x="300" y="302" text-anchor="middle" fill="#ffffff">Engineering</text>
+    </svg>
+  </div>
+  <p>Click a colored segment to highlight the related courses below. Click the same segment again to show all courses.</p>
+</section>
+
 <h2>Degree Requirements</h2>
 <h3>Six MSLE Core Courses</h3>
 <p>All students are required to take the following six core courses (<a href="https://hcii.cmu.edu/course/e-learning-design-principles-and-methods" target="_blank" rel="noopener">05-823</a>, <a href="https://www.hcii.cmu.edu/course/evidence-based-educational-design" target="_blank" rel="noopener">05-738</a>, <a href="https://www.hcii.cmu.edu/course/tools-online-learning" target="_blank" rel="noopener">05-840</a>, <a href="https://www.hcii.cmu.edu/course/interaction-design-human-computer-interaction" target="_blank" rel="noopener">05-660</a>,<a href="https://www.hcii.cmu.edu/course/MSLE-project-i" target="_blank" rel="noopener"> 05-681</a> and<a href="https://www.hcii.cmu.edu/course/MSLE-project-ii" target="_blank" rel="noopener"> 05-682</a>):</p>
 <ul>
 <li><strong>Core Courses </strong></li>
 </ul>
-<p style="padding-left: 30px;"><strong><strong><a href="https://hcii.cmu.edu/course/e-learning-design-principles-and-methods" target="_blank" rel="noopener noreferrer">05-823</a> E-Learning Design Principles and Methods</strong></strong></p>
+<div class="msle-core-course course-item" data-areas="learning-science-theory learning-experience-design data-based-iteration"><p><strong><strong><a href="https://hcii.cmu.edu/course/e-learning-design-principles-and-methods" target="_blank" rel="noopener noreferrer">05-823</a> E-Learning Design Principles and Methods</strong></strong></p>
 [caption id="attachment_222" align="alignright" width="361"]<a href="https://msle.hcii.cmu.edu/wp-content/uploads/2015/08/elearn_sm.jpg"><img src="https://msle.hcii.cmu.edu//wp-content/uploads/2015/08/elearn_sm.jpg" alt=" “e-Learning and the Science of Instruction: Proven Guidelines for Consumers and Designers of Multimedia Learning’ by Clark &amp; Mayer " width="361" height="271" /></a> E-Learning and the Science of Instruction: Proven Guidelines for Consumers and Designers of Multimedia Learning by Clark &amp; Mayer[/caption]
-<p style="padding-left: 30px;">Good design is a continuous improvement process that combines scientific principles and data-driven methods to achieve desired outcomes. E-learning design is no exception. In this course, you will learn how to design innovative e-learning, that is, online interactions and technology that make learning more effective and efficient. You will practice instructional design using learning science theories and principles and learning engineering using data-driven methods to discover insights about how learners think. Instructional designers explain and use principles of learning and instruction such as proven ways to support learning-by-doing, like deliberate practice and self-explanation, and proven ways to support multimedia learning from text, visuals, and audio. They employ "backward design": designing and aligning learning goals, the assessments that measure them, and the instruction that achieves them. But today’s learning engineers do not simply design in sequence — goals then assessments then instruction — but are agile and iterative. They collect qualitative data, for example, by having an expert “think aloud” while performing one of their assessments and use the results to add or change goals. They collect and use quantitative data, for example, by mining learning data from online course interactions or by comparing alternative designs in an A/B experiment. By using data, learning engineers create innovative and effective designs unlike the results of others who rely on science and intuition alone. You will do so too in an end-to-end e-learning design project, where you develop an e-learning module of your choice, continuously improve it, and test it in an A/B experiment.</p>
-<p style="padding-left: 30px;"><strong><a href="https://www.hcii.cmu.edu/course/evidence-based-educational-design" target="_blank" rel="noopener">05-738</a> Evidence-Based Educational</strong><strong> Design</strong><br />In this course, we will explore the essential principles of educational design, focusing on creating inclusive environments for diverse learners and promoting positive behavior. We will explore effective strategies for measuring learning outcomes, enhancing student engagement, and assessing educational effectiveness. Students will prepare for careers as instructional designers, learning engineers, educators, and researchers as we cover the range of topics in this class. The coursework includes a thorough examination of current research in learning sciences through various papers and textbooks. Additionally, students will apply these theoretical principles practically by completing two hands-on projects, seeing the direct application of the concepts to real-world use cases. Class time will be spent discussing the weekly readings, highlighting relevant case studies, and engaging in group activities that foster collaboration and practical application of the material covered. This course will prepare students for real-world challenges in educational design and help integrate learning science knowledge through practical experience, enabling them to create effective educational designs and strategies.</p>
-<p style="padding-left: 30px;"><strong><a href="https://www.hcii.cmu.edu/course/tools-online-learning" target="_blank" rel="noopener">05-840</a> Tools for Online Learning</strong><br />This course will cover a variety of learning science principles and how they apply to tools used for online learning, hence the name! We will examine what it means to make a “good” tool for learning, why it is hard, and how you can create and prototype them. The bulk of this class centers around three learning mechanics: feedback and active learning, collaboration between learners, and data-driven improvement. Using these mechanics as specific case studies, the class will teach students how to think about, build, and study tools for online learning both for formal, classroom education, and informal learning. While we cover learning science principles, the focus of this course will be on the application of those principles as they are used in a variety of learning tools. The ultimate goal of this course is to give you hands-on experience working with a variety of tools, and through doing so, learning how to better design, improve, and utilize them for all types of learners.</p>
-<p style="padding-left: 30px;"><strong><a href="https://www.hcii.cmu.edu/course/interaction-design-human-computer-interaction" target="_blank" rel="noopener">05-660</a> Interaction Design Fundamentals</strong><br />This course introduces the human-centered design process as well as fundamental interaction design principles, methods, and practices. As individuals and in small teams students learn interaction design concepts and apply them to real-world problems. This course teaches how to: apply appropriate interaction design methods in a human-centered design process; create persuasive interim and final design artifacts that demonstrate communication design fundamentals; facilitate productive and structured critique across the class and with instructors; explain and apply fundamental interaction design principles; create clarity and readability in artifacts, including GUIs and deliverables, through the disciplined application of visual design principles such as typography, color and composition; practice reframing a given problem in order to create opportunities that drive generating multiple solutions.; demonstrate habits that foster the creative process, including drawing, divergent thinking, and creative experimentation; and identify and explore with interaction design materials.</p>
+<p style="padding-left: 30px;">Good design is a continuous improvement process that combines scientific principles and data-driven methods to achieve desired outcomes. E-learning design is no exception. In this course, you will learn how to design innovative e-learning, that is, online interactions and technology that make learning more effective and efficient. You will practice instructional design using learning science theories and principles and learning engineering using data-driven methods to discover insights about how learners think. Instructional designers explain and use principles of learning and instruction such as proven ways to support learning-by-doing, like deliberate practice and self-explanation, and proven ways to support multimedia learning from text, visuals, and audio. They employ "backward design": designing and aligning learning goals, the assessments that measure them, and the instruction that achieves them. But today’s learning engineers do not simply design in sequence — goals then assessments then instruction — but are agile and iterative. They collect qualitative data, for example, by having an expert “think aloud” while performing one of their assessments and use the results to add or change goals. They collect and use quantitative data, for example, by mining learning data from online course interactions or by comparing alternative designs in an A/B experiment. By using data, learning engineers create innovative and effective designs unlike the results of others who rely on science and intuition alone. You will do so too in an end-to-end e-learning design project, where you develop an e-learning module of your choice, continuously improve it, and test it in an A/B experiment.</p></div>
+<div class="msle-core-course course-item" data-areas="learning-science-theory learning-experience-design data-based-iteration"><p><strong><a href="https://www.hcii.cmu.edu/course/evidence-based-educational-design" target="_blank" rel="noopener">05-738</a> Evidence-Based Educational</strong><strong> Design</strong><br />In this course, we will explore the essential principles of educational design, focusing on creating inclusive environments for diverse learners and promoting positive behavior. We will explore effective strategies for measuring learning outcomes, enhancing student engagement, and assessing educational effectiveness. Students will prepare for careers as instructional designers, learning engineers, educators, and researchers as we cover the range of topics in this class. The coursework includes a thorough examination of current research in learning sciences through various papers and textbooks. Additionally, students will apply these theoretical principles practically by completing two hands-on projects, seeing the direct application of the concepts to real-world use cases. Class time will be spent discussing the weekly readings, highlighting relevant case studies, and engaging in group activities that foster collaboration and practical application of the material covered. This course will prepare students for real-world challenges in educational design and help integrate learning science knowledge through practical experience, enabling them to create effective educational designs and strategies.</p></div>
+<div class="msle-core-course course-item" data-areas="learning-experience-design technical-product-development data-based-iteration"><p><strong><a href="https://www.hcii.cmu.edu/course/tools-online-learning" target="_blank" rel="noopener">05-840</a> Tools for Online Learning</strong><br />This course will cover a variety of learning science principles and how they apply to tools used for online learning, hence the name! We will examine what it means to make a “good” tool for learning, why it is hard, and how you can create and prototype them. The bulk of this class centers around three learning mechanics: feedback and active learning, collaboration between learners, and data-driven improvement. Using these mechanics as specific case studies, the class will teach students how to think about, build, and study tools for online learning both for formal, classroom education, and informal learning. While we cover learning science principles, the focus of this course will be on the application of those principles as they are used in a variety of learning tools. The ultimate goal of this course is to give you hands-on experience working with a variety of tools, and through doing so, learning how to better design, improve, and utilize them for all types of learners.</p></div>
+<div class="msle-core-course course-item" data-areas="interaction-design learning-experience-design"><p><strong><a href="https://www.hcii.cmu.edu/course/interaction-design-human-computer-interaction" target="_blank" rel="noopener">05-660</a> Interaction Design Fundamentals</strong><br />This course introduces the human-centered design process as well as fundamental interaction design principles, methods, and practices. As individuals and in small teams students learn interaction design concepts and apply them to real-world problems. This course teaches how to: apply appropriate interaction design methods in a human-centered design process; create persuasive interim and final design artifacts that demonstrate communication design fundamentals; facilitate productive and structured critique across the class and with instructors; explain and apply fundamental interaction design principles; create clarity and readability in artifacts, including GUIs and deliverables, through the disciplined application of visual design principles such as typography, color and composition; practice reframing a given problem in order to create opportunities that drive generating multiple solutions.; demonstrate habits that foster the creative process, including drawing, divergent thinking, and creative experimentation; and identify and explore with interaction design materials.</p>
 [caption id="attachment_61" align="alignleft" width="369"]<img src="https://msle.hcii.cmu.edu/wp-content/uploads/2015/08/slider-5.jpg" alt="Students receive significant guided feedback from faculty and mentors." width="369" height="185" /> Students receive significant guided feedback from faculty and mentors.[/caption]
-<p style="padding-left: 30px;"><strong><a href="https://www.hcii.cmu.edu/course/MSLE-project-i" target="_blank" rel="noopener">05-681</a> MSLE Project I (12-unit spring course)</strong><strong><br /><a href="https://www.hcii.cmu.edu/course/MSLE-project-ii" target="_blank" rel="noopener">05-682</a> MSLE Project II (48-unit summer course)</strong><br />Experiential learning is key component of the MSLE program. Through a substantial team project, students apply classroom knowledge in analysis and evaluation, implementation and design, and develop skills working in multidisciplinary teams. The project begins in the spring semester before graduation and continues full-time through the final summer semester; it must be taken in consecutive spring and summer semesters. The course number for spring is 05-681 and for summer 05-682.</p>
+</div>
+<div class="msle-core-course course-item" data-areas="learning-experience-design interaction-design technical-product-development data-based-iteration"><p style="padding-left: 30px;"><strong><a href="https://www.hcii.cmu.edu/course/MSLE-project-i" target="_blank" rel="noopener">05-681</a> MSLE Project I (12-unit spring course)</strong><strong><br /><a href="https://www.hcii.cmu.edu/course/MSLE-project-ii" target="_blank" rel="noopener">05-682</a> MSLE Project II (48-unit summer course)</strong><br />Experiential learning is key component of the MSLE program. Through a substantial team project, students apply classroom knowledge in analysis and evaluation, implementation and design, and develop skills working in multidisciplinary teams. The project begins in the spring semester before graduation and continues full-time through the final summer semester; it must be taken in consecutive spring and summer semesters. The course number for spring is 05-681 and for summer 05-682.</p></div>
 <h3 style="text-align: left;">Five Electives</h3>
-<p>You may use the five elective courses to design the program to your individual interests, background and goals. <strong>You must choose a minimum of three electives from at least two of the three distributional areas (Technology, Learning Sciences Theory &amp; Instructional Design, Methods &amp; Design).</strong>  It is your responsibility to ensure that you fulfill the distributional requirements. See the table below for the approved electives for each distributional area. Cross-listed electives count only in one distributional area. Independent studies typically do not fulfill distributional requirements unless pre-approved by the program director.</p>
+<p>You may use the five elective courses to design the program to your individual interests, background and goals. The interactive map below reorganizes approved electives into five connected Learning Engineering areas so students can explore the curriculum by theme instead of the earlier four-bucket distribution model.</p>
 <p>Each elective course must be the equivalent of a full-semester (9 or 12 units) course; two mini (half-semester) courses (6 units each) count as one elective. Elective courses must be different from any that you may have taken as part of the MSLE core, and they cannot have counted toward a degree previously awarded by CMU.</p>
 <p>Electives other than those listed below must be individually approved by the program director on a case-by-case basis for each student to realize their program goals and future endeavors.</p>
-<table border="1" cellspacing="0" cellpadding="3">
+<div id="msle-elective-categories" class="msle-course-grid" aria-live="polite"></div>
+<div class="legacy-curriculum-source"><table border="1" cellspacing="0" cellpadding="3">
 <tbody>
 <tr valign="top">
 <td>
@@ -145,6 +216,193 @@
 </tr>
 </tbody>
 </table>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const areas = [
+    { slug: 'learning-science-theory', label: 'Learning science theory' },
+    { slug: 'learning-experience-design', label: 'Learning experience design' },
+    { slug: 'interaction-design', label: 'Interaction design' },
+    { slug: 'technical-product-development', label: 'Technical product development' },
+    { slug: 'data-based-iteration', label: 'Data-based iteration' }
+  ];
+  const areaMap = {
+    'Accessibility (05-899 B S22 & S21) #': ['interaction-design', 'technical-product-development'],
+    'AI Engineering (11-695) or Machine Learning in Production (17-645)': ['technical-product-development', 'data-based-iteration'],
+    'Advanced Natural Language Processing (11-711)': ['technical-product-development'],
+    'Algorithm Design and Analysis (15-651)': ['technical-product-development'],
+    'Applied Data Science (16-791)': ['data-based-iteration', 'technical-product-development'],
+    'Applied Deep Learning (17-644)*': ['technical-product-development', 'data-based-iteration'],
+    'Applied Machine Learning (05-834)': ['technical-product-development', 'data-based-iteration'],
+    'Building Technologies for the Resistance (05-899 D F24) #': ['technical-product-development', 'interaction-design'],
+    'Celebrating Accessibility (05-899 A F24) #': ['interaction-design', 'learning-experience-design'],
+    'Cloud Computing (15-619)': ['technical-product-development'],
+    'Computational Methods for Interactive Systems (05-899 B S25) #': ['technical-product-development', 'interaction-design'],
+    'Data Science for Product Managers (05-898)* #': ['technical-product-development', 'data-based-iteration'],
+    'Data Visualization (05-619)': ['data-based-iteration', 'interaction-design'],
+    'Database Management (95-703)': ['technical-product-development'],
+    'Design Center: Design for Digital Systems (51-828)': ['learning-experience-design', 'technical-product-development'],
+    'Design Educational Games (05-818)': ['learning-experience-design', 'interaction-design', 'learning-science-theory'],
+    'Designing Human Centered Software (05-891)': ['interaction-design', 'technical-product-development', 'learning-experience-design'],
+    'Foundations of Computational Data Science (11-637)': ['data-based-iteration', 'technical-product-development'],
+    'Gadgets, Sensors and Activity Recognition in HCI (05-833)': ['technical-product-development', 'interaction-design'],
+    'HCI for Product Managers (05-898)* #': ['technical-product-development', 'interaction-design'],
+    'Human AI Interaction (05-618)': ['interaction-design', 'technical-product-development'],
+    'Human Language for AI (11-624, 11-724)': ['technical-product-development'],
+    'Interaction Techniques (05-640)': ['interaction-design', 'technical-product-development'],
+    'Interactive Data Science (05-839)': ['data-based-iteration', 'interaction-design'],
+    'Introduction to Deep Learning (11-685)': ['technical-product-development', 'data-based-iteration'],
+    'Introduction to Machine Learning (10-601, 10-701)': ['technical-product-development', 'data-based-iteration'],
+    'Machine Learning for Text & Graph-based Mining (11-641) or Machine Learning with Graphs (11-741)': ['technical-product-development', 'data-based-iteration'],
+    'Multimodal Machine Learning (11-777)': ['technical-product-development'],
+    'Natural Language Processing (11-611)': ['technical-product-development'],
+    'Personalized Online Learning (05-832)': ['learning-experience-design', 'data-based-iteration', 'technical-product-development'],
+    'Practical Data Science (15-688)': ['data-based-iteration', 'technical-product-development'],
+    'Principles of Software Construction (17-514)': ['technical-product-development'],
+    'Programming Usable Interfaces (PUI) (05-630)**': ['technical-product-development', 'interaction-design'],
+    'Prompt Engineering (17-630)': ['technical-product-development'],
+    'Prototyping Algorithmic Experiences (05-685)': ['interaction-design', 'technical-product-development', 'learning-experience-design'],
+    'Python for Data Science (11-603)': ['data-based-iteration', 'technical-product-development'],
+    'Role of Technology in Learning in the 21st Century (05-838)': ['learning-science-theory', 'learning-experience-design', 'technical-product-development'],
+    'Software Project Management (17-632)*': ['technical-product-development'],
+    'Software Structures for User Interfaces (05-631)': ['technical-product-development', 'interaction-design'],
+    'Web Application Development (17-637)': ['technical-product-development'],
+    'Applications of Cognitive Science (85-795, 05-795)': ['learning-science-theory'],
+    'Cognitive Development (85-723)': ['learning-science-theory'],
+    'Learning Analytics and Educational Data Science (05-899 B F23; 05-899 A S25) #': ['data-based-iteration', 'learning-science-theory'],
+    'Persuasive Design (05-615)': ['interaction-design', 'learning-experience-design'],
+    'Advanced Interaction Design (05-661)': ['interaction-design', 'learning-experience-design'],
+    'Agile Methods (95-874)*': ['technical-product-development', 'data-based-iteration'],
+    'Applied Research Methods (05-816)': ['data-based-iteration'],
+    'Computer Science Perspectives in HCI (05-773)*': ['interaction-design', 'technical-product-development'],
+    'Data Science for Psychology & Neuroscience (85-732)': ['data-based-iteration', 'learning-science-theory'],
+    'Design of Artificial Intelligence Products (05-617)': ['interaction-design', 'technical-product-development', 'learning-experience-design'],
+    'Designing Experiences for Learning (51-886)': ['learning-experience-design', 'learning-science-theory'],
+    'Designing with CARE (51-636)': ['learning-experience-design', 'interaction-design'],
+    'Digital Ethnography (49-717)*': ['data-based-iteration', 'interaction-design'],
+    'Digital Service Innovation (05-670)': ['learning-experience-design', 'technical-product-development'],
+    'Experimental Design for Behavioral and Social Sciences (36-749)': ['data-based-iteration'],
+    'History and Future of Interaction Design (51-695)': ['interaction-design', 'learning-science-theory'],
+    'Human Factors (05-813)': ['interaction-design', 'data-based-iteration'],
+    'IDeATe: Learning in Museums (05-602)': ['learning-experience-design', 'learning-science-theory'],
+    'Learning Media Design (05-691)': ['learning-experience-design', 'interaction-design'],
+    'Research Methods for Design (51-744)': ['data-based-iteration', 'interaction-design'],
+    'Service Design (05-652)': ['learning-experience-design', 'interaction-design'],
+    'Social Perspectives in HCI (05-772)*': ['interaction-design', 'learning-science-theory'],
+    'The AI Augmented Designer (05-899) #': ['interaction-design', 'technical-product-development'],
+    'Transformational Game Design Studio (05-899) #': ['learning-experience-design', 'interaction-design'],
+    'Transformational Game Design Studio (05-662)': ['learning-experience-design', 'interaction-design'],
+    'User Centered Research & Evaluation (UCRE) (05-610)**': ['data-based-iteration', 'interaction-design'],
+    'AI Venture Studio (11-681)': ['technical-product-development'],
+    'Augmenting Intelligence (05-899 B F24) #': ['technical-product-development', 'interaction-design'],
+    'Data Analytics with Tableau (94-819)*': ['data-based-iteration'],
+    'Decision Making Under Uncertainty (95-760)*': ['data-based-iteration'],
+    'Design Center: Human Experience in Design (51-673)': ['interaction-design', 'learning-experience-design'],
+    'Design Center: Methodology of Visualization (51-831)': ['interaction-design', 'data-based-iteration'],
+    'Designing for Service (51-785)': ['learning-experience-design', 'interaction-design'],
+    'Commercialization and Innovation: Strategy (45-807)*': ['technical-product-development'],
+    'Evaluate Research: Think Aloud Protocol and Usability Testing (05-898 C4)* #': ['data-based-iteration', 'interaction-design'],
+    'Evidence-Based Management (94-814)*': ['data-based-iteration'],
+    'Fairness, Accountability, Transparency, and Ethics in Sociotechnical Systems (05-899 A F22 & F23) #': ['learning-science-theory', 'technical-product-development'],
+    'Guest Experience in Theme Park Design (53-612)': ['learning-experience-design', 'interaction-design'],
+    'Human Robot Interaction (16-867)': ['interaction-design', 'technical-product-development'],
+    'Independent Study (05-680)': ['learning-experience-design', 'technical-product-development', 'data-based-iteration'],
+    'Language and Statistics (11-761)': ['data-based-iteration', 'technical-product-development'],
+    'Machine Learning with Graphs (11-741)': ['technical-product-development', 'data-based-iteration'],
+    'Practicum in HCI (05-888)***': ['interaction-design', 'technical-product-development'],
+    'Product Management Essentials I (17-619 or 17-692)*': ['technical-product-development'],
+    'Product Management Essentials II (17-629)*': ['technical-product-development'],
+    'Quality Assurance (17-623)*': ['technical-product-development', 'data-based-iteration'],
+    'Second Language Acquisition: Theories and Research (82-783)': ['learning-science-theory'],
+    'Social Agent (05-899) #': ['interaction-design', 'technical-product-development'],
+    'Social Web (05-820)': ['interaction-design', 'technical-product-development'],
+    'Talking to Robots (11-851) is offered in 6 or 12 units': ['interaction-design', 'technical-product-development'],
+    'Technology Outreach and Engagement in the Pittsburgh Community (67-706)': ['learning-experience-design', 'learning-science-theory'],
+    'Topics in Second Language Acquisition (82-888)': ['learning-science-theory'],
+    'Topics on Ethics for AI (80-836)': ['learning-science-theory', 'technical-product-development'],
+    'Transition Design (51-702)': ['learning-experience-design', 'interaction-design'],
+    'Tutoring, Teaching and Leading through Education (99-761)': ['learning-experience-design', 'learning-science-theory'],
+    'UX Research with Quantitative Data Sources (05-898 D3)* #': ['data-based-iteration', 'interaction-design'],
+    'Unstructured Data Analytics (95-865)*': ['data-based-iteration', 'technical-product-development']
+  };
+
+  const normalize = (value) => value.replace(/ /g, ' ').replace(/\s+/g, ' ').replace(/\(\s+/g, '(').replace(/\s+\)/g, ')').replace(/\s+,/g, ',').trim();
+  const electiveSourceItems = Array.from(document.querySelectorAll('.legacy-curriculum-source li'));
+  const electiveContainer = document.getElementById('msle-elective-categories');
+  const categoryLists = {};
+
+  areas.forEach((area) => {
+    const panel = document.createElement('section');
+    panel.className = 'msle-category-panel';
+    panel.dataset.area = area.slug;
+    panel.style.setProperty('--area-color', {
+      'learning-science-theory': '#9b68b3',
+      'learning-experience-design': '#f45d3a',
+      'interaction-design': '#1499c7',
+      'technical-product-development': '#72b340',
+      'data-based-iteration': '#f4ae43'
+    }[area.slug]);
+    panel.innerHTML = '<h4>' + area.label + '</h4><ul class="msle-course-list" data-area-list="' + area.slug + '"></ul>';
+    electiveContainer.appendChild(panel);
+    categoryLists[area.slug] = panel.querySelector('ul');
+  });
+
+  electiveSourceItems.forEach((item) => {
+    const normalized = normalize(item.textContent.replace(/\(05-813\)\)/g, '(05-813)').replace(/Data\s+Analytics\s+with\s+Tableau/, 'Data Analytics with Tableau').replace(/click here \./, 'click here.'));
+    const categories = areaMap[normalized] || [];
+    categories.forEach((category) => {
+      const clone = item.cloneNode(true);
+      clone.classList.add('course-item');
+      clone.dataset.areas = categories.join(' ');
+      categoryLists[category].appendChild(clone);
+    });
+  });
+
+  const highlightable = Array.from(document.querySelectorAll('.course-item, .msle-course-list li, .msle-core-course'));
+  const slices = Array.from(document.querySelectorAll('.msle-slice'));
+
+  function setActiveArea(area) {
+    slices.forEach((slice) => {
+      slice.classList.toggle('is-active', slice.dataset.area === area);
+      slice.classList.toggle('is-dimmed', area !== 'all' && slice.dataset.area !== area);
+    });
+    Array.from(document.querySelectorAll('.msle-category-panel')).forEach((panel) => {
+      panel.classList.toggle('is-active', panel.dataset.area === area);
+      panel.classList.toggle('is-dimmed', area !== 'all' && panel.dataset.area !== area);
+    });
+    highlightable.forEach((item) => {
+      const itemAreas = (item.dataset.areas || '').split(/\s+/).filter(Boolean);
+      if (area === 'all') {
+        item.dataset.highlightState = 'default';
+      } else if (itemAreas.includes(area)) {
+        item.dataset.highlightState = 'active';
+      } else {
+        item.dataset.highlightState = 'dimmed';
+      }
+    });
+  }
+
+  slices.forEach((control) => {
+    control.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        const nextArea = activeArea === control.dataset.area ? 'all' : control.dataset.area;
+        activeArea = nextArea;
+        setActiveArea(nextArea);
+      }
+    });
+    control.addEventListener('click', () => {
+      const nextArea = activeArea === control.dataset.area ? 'all' : control.dataset.area;
+      activeArea = nextArea;
+      setActiveArea(nextArea);
+    });
+  });
+
+  let activeArea = 'all';
+
+  setActiveArea('all');
+});
+</script>
 <p>*mini-course - counts as half of one elective</p>
 <p>**Available in the Spring semester for MSLE students. In the Fall semester, PUI and UCRE are both reserved for MHCI students. Others may take it if and only if space is available and with the instructor's permission. Non-MHCI students who register for this course in the Fall without the instructor’s approval will be removed without warning.</p>
 <p>*** 3-unit - doesn't count as half of one elective</p>
